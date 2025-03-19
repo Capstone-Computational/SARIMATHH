@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARIMATH</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="flex items-center justify-between p-4 bg-white shadow-md">
+        <!-- Logo on the left -->
+        <div class="logo">
+            <img src="LOGO_HIV-removebg-preview.png" alt="Logo" class="h-10">
+        </div>
+        <!-- Navigation links on the right -->
+        <nav class="navigation">
+            <ul class="flex space-x-4">
+                <li><a href="#about" class="text-gray-700 hover:text-gray-900 font-bold" onclick="openModal()">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>SARIMA Model Forecast</h1>
+
+        <!-- File Upload -->
+        <input type="file" id="fileInput" accept=".csv">
+        <button onclick="loadData()">Upload & Plot</button>
+        <div style="width: 80%; margin: auto;">
+            <canvas id="sarimaChart"></canvas>
+            <canvas id="barChart" style="margin-top: 20px;"></canvas>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="about-container">
+                <h1 style="font-weight: bold; font-size: 2em; text-align: center;">SARIMA Model Equation</h1>
+                <p class="equation" style="font-weight: bold; text-align: center; font-size: 1.5em;">ϕ(B)Φ(Bₘ)(1 - B)ᵈ(1 - Bᵐ)ᴰ Zₜ = θ(B)Θ(Bₘ) aₜ</p>
+                <p><em>B</em> is the backshift operator</p>
+                <p><em>d</em> and <em>D</em> represent the degree of differencing for non-seasonal and seasonal components, respectively</p>
+                <p><em>p</em> and <em>P</em> are the orders of autoregressive (AR) components for non-seasonal and seasonal terms</p>
+                <p><em>q</em> and <em>Q</em> are the orders of moving average (MA) components for non-seasonal and seasonal terms</p>
+                <p><em>s</em> denotes the seasonal period</p>
+                <p><em>Zₜ</em> represents the observed time series</p>
+                <p><em>aₜ</em> is a white noise error term</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
